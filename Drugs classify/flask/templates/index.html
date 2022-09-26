@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title><b>Drug Classification</b>></title>
+    <link href="https://cdn.bootcss.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+    .index
+    {
+    margin: 0px;
+    padding:20px;
+    color:#AFCC24 ;
+    font-style: bold;
+    border-radius:300px;
+    font-size:25px;
+    }
+    body
+    {
+    background-image: url("https://cdn.pixabay.com/photo/2014/09/07/12/08/apothecary-437743_960_720.jpg");
+    background-size: cover;
+    }
+    p
+    {
+    color:white;
+    font-style:italic;
+     font-style:bold;
+    font-size:30px;
+    }
+
+    </style>
+
+</head>
+<body>
+
+<div class="index">
+    <center>
+	    <h1>Drug Classification </h1>
+        <h3>
+            <p><h4 style="color:white;">" The main purpose of the Drug Classification system is to predict the suitable drug type of patients based on their characteristics.."</h4></p>
+        </h3><br>
+    </center>
+
+     <!-- Main Input For Receiving Query to our ML -->
+<h6>
+    <form action="{{ url_for('predict')}}"method="post">
+        <label for="Age" >Age:</label><br>
+        <input type="text" id="Age" name="Age" placeholder="Age" required="required"/><br><br>
+        <label for="Sex">Sex:</label><br>
+        <select id="Sex" name="Sex">
+            <option value="MALE">MALE</option>
+            <option value="FEMALE">FEMALE</option></select><br><br>
+        <label for="BP">BP:</label><br>
+        <select id="BP" name="BP">
+            <option value="LOW">LOW</option>
+            <option value="NORMAL">NORMAL</option>
+            <option value="HIGH">HIGH</option></select><br><br>
+        <label for="Cholesterol">Cholesterol:</label><br>
+        <select id="Cholesterol" name="Cholesterol">
+            <option value="NORMAL">NORMAL</option>
+            <option value="HIGH">HIGH</option></select><br><br>
+        <label for="Na_to_K">Na_to_K:</label><br>
+        <input type="text" id="Na_to_K" name="Na_to_K" placeholder="Na_to_K" required="required"/><br><br>
+
+        <button type="submit" class="btn btn-primary btn-block ">Submit</button>
+    </form>
+    <br>
+</h6>
+    <h3>
+         {{ prediction_text }}
+    </h3>
+
+</div>
+
+</body>
+</html>
